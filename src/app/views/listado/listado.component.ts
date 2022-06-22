@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Entrada } from 'src/app/shared/interfaces/entrada';
 
 @Component({
   selector: 'app-listado',
@@ -7,7 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoComponent implements OnInit {
 
-  constructor() { }
+  public listadoEntradas : Entrada[];
+
+  constructor() {
+    this.listadoEntradas = [
+      {
+        titulo: 'Uno',
+        resumen: 'Resumen uno'
+      },
+      {
+        titulo: 'Dos',
+        resumen: 'Resumen dos'
+      }
+    ];
+  }
 
   ngOnInit(): void {
   }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Entrada } from 'src/app/shared/interfaces/entrada';
 
 @Component({
   selector: 'app-entrada',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntradaComponent implements OnInit {
 
-  constructor() { }
+  @Input() public entrada: Entrada;
+
+  constructor() {
+    this.entrada = {titulo: "prueba", resumen: "PRUEBA"};
+  }
 
   ngOnInit(): void {
   }
