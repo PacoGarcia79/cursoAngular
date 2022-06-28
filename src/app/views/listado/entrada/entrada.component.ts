@@ -11,7 +11,7 @@ export class EntradaComponent implements OnInit {
   @Input() public entrada: Entrada;
 
   constructor() {
-    this.entrada = {titulo: "prueba", resumen: "PRUEBA"};
+    this.entrada = {title: "prueba", body: "PRUEBA"};
   }
 
   ngOnInit(): void {

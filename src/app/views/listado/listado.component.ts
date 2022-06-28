@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Entrada } from 'src/app/shared/interfaces/entrada';
+import { EntradaService } from 'src/app/shared/services/entrada.service';
 
 @Component({
   selector: 'app-listado',
@@ -10,20 +11,35 @@ export class ListadoComponent implements OnInit {
 
   public listadoEntradas : Entrada[];
 
-  constructor() {
-    this.listadoEntradas = [
-      {
-        titulo: 'Uno',
-        resumen: 'Resumen uno'
-      },
-      {
-        titulo: 'Dos',
-        resumen: 'Resumen dos'
-      }
-    ];
+  ngOnInit(): void {
+    this.recuperarEntradas();
   }
 
-  ngOnInit(): void {
+  constructor(private entradaService: EntradaService) {
+
+    this.listadoEntradas = [{title: "prueba", body: "PRUEBA"}];
+
   }
+
+  private recuperarEntradas() : void {
+
+    this.entradaService.recuperarEntradas().subscribe(
+      (data) => {
+        this.listadoEntradas = data;
+      },
+      (error) => {
+
+      },
+      () => {
+
+      }
+    )
+
+
+  }
+
+
+
+
 
 }
